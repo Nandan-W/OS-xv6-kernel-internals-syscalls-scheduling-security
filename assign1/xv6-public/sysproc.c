@@ -7,6 +7,17 @@
 #include "mmu.h"
 #include "proc.h"
 
+int trace_state = 0;
+//Global variable to toggle on/off state for trace, 0 = TRACE_OFF, 1  = TRACE_ON
+
+//and the correspongding function below
+int 
+sys_toggle(void)
+{
+  trace_state = !trace_state;
+  return 0;
+}
+
 int
 sys_fork(void)
 {

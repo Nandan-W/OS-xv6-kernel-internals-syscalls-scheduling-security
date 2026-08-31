@@ -18,6 +18,16 @@ sys_toggle(void)
   return 0;
 }
 
+//function for sys call to add()
+int
+sys_add(void)
+{
+	int a,b;
+	argint(0,&a);
+	argint(1,&b);
+	return a+b;
+}
+
 int
 sys_fork(void)
 {

@@ -182,7 +182,8 @@ UPROGS=\
 	_wc\
 	_zombie\
 	_user_toggle\
-	_print_count
+	_print_count\
+	_sys_add_test
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
 
@@ -249,7 +250,7 @@ qemu-nox-gdb: fs.img xv6.img .gdbinit
 # check in that version.
 
 EXTRA=\
-        user_toggle.c print_count.c\
+        user_toggle.c print_count.c sys_add_test.c\
 	mkfs.c ulib.c user.h cat.c echo.c forktest.c grep.c kill.c\
 	ln.c ls.c mkdir.c rm.c stressfs.c usertests.c wc.c zombie.c\
 	printf.c umalloc.c\

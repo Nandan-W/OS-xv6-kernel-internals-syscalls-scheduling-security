@@ -532,3 +532,22 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+
+int
+sys_ps(void)
+{
+	struct proc *p;
+	
+	acquire(&ptable.lock);
+
+	for( p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+		if( p -> state != UNUSED ){
+			cprintf("pid : %d name: %s \n ", p -> pid , p -> name);
+		}
+	}
+
+	release(&ptable.lock);
+	
+	return 0;
+}
